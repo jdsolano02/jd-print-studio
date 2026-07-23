@@ -44,7 +44,8 @@ const PRODUCTS = [
     name: "Tapacubos Square-1",
     category: "speedcubing",
     price: 5000,
-    description: "Soporte/base a medida para exhibir tu Square-1.",
+    description:
+      "Para practicar y que tu Square-1 no se mueva, provocando miss scrambles",
     image: "images/products/tapacubos-square-1.jpeg",
   },
 
@@ -96,7 +97,7 @@ const PRODUCTS = [
     name: "Holder Monte Fuji Graycano (M)",
     category: "coffee",
     price: 4500,
-    description: "Soporte tamaño M para dripper Monte Fuji Graycano.",
+    description: "Soporte tamaño M para filtros Graycano o similares.",
     image: "images/products/holder-monte-fuji-graycano-m.jpeg",
   },
   {
@@ -104,7 +105,7 @@ const PRODUCTS = [
     name: "Holder Monte Fuji Sibarist Fast (L)",
     category: "coffee",
     price: 5000,
-    description: "Soporte tamaño L para dripper Monte Fuji Sibarist Fast.",
+    description: "Soporte tamaño L para filtros Sibarist Fast o similares",
     image: "images/products/holder-monte-fuji-sibarist-fast-l.jpeg",
   },
   {
@@ -112,7 +113,7 @@ const PRODUCTS = [
     name: "Holder Monte Fuji UFO (S)",
     category: "coffee",
     price: 4000,
-    description: "Soporte tamaño S para tu dripper Monte Fuji UFO.",
+    description: "Soporte tamaño S para filtros UFO o similares.",
     image: "images/products/holder-monte-fuji-ufo-s.jpeg",
   },
   {
@@ -130,7 +131,7 @@ const PRODUCTS = [
     category: "coffee",
     price: 4000,
     description:
-      "Bandeja para tu Melodrip que evita goteos y mantiene tu espacio limpio.",
+      "Bandeja para tu Melodrip que es compatible con bastantes metodos comerciales, para poder usarlo sin preocupaciones (no compatible con Origami M)",
     image: "images/products/melodrip-tray-v2.jpeg",
   },
   {
@@ -139,7 +140,7 @@ const PRODUCTS = [
     category: "coffee",
     price: 5000,
     description:
-      'Soporte "Negociador" para tu dripper V60 02, estabilidad total al servir.',
+      "Para ayudarte a colocar el  filtro de la mejor manera dentro de tu V60",
     image: "images/products/negociador-v60-02.jpeg",
   },
   {
@@ -155,8 +156,7 @@ const PRODUCTS = [
     name: "Tapa Comandante con Clip",
     category: "coffee",
     price: 1500,
-    description:
-      "Tapa con clip para el recipiente de tu Comandante C40, sella el aroma.",
+    description: "Tapa con clip para el molino manual Comandante C40.",
     image: "images/products/tapa-comandante-con-clip.jpeg",
   },
 
