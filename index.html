@@ -76,6 +76,28 @@
     </div>
   </footer>
 
+  <button id="cart-fab" class="fixed bottom-5 right-5 z-20 bg-mint text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-mint/80 transition-colors" aria-label="Ver carrito">
+    🛒
+    <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-forest text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+  </button>
+
+  <div id="cart-overlay" class="hidden fixed inset-0 z-30 bg-black/50"></div>
+  <div id="cart-panel" class="hidden fixed top-0 right-0 z-40 h-full w-full max-w-sm bg-white text-black shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-black/10">
+      <h2 class="font-bold text-lg">Tu pedido</h2>
+      <button id="cart-close" class="text-2xl leading-none text-black/60 hover:text-black" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto px-5"></div>
+    <p id="cart-empty" class="px-5 py-10 text-center text-black/50">Tu carrito está vacío. Agrega productos con el botón "+" en cada tarjeta.</p>
+    <div id="cart-footer" class="hidden border-t border-black/10 px-5 py-4">
+      <div class="flex items-center justify-between font-bold text-lg mb-3">
+        <span>Total</span>
+        <span id="cart-total">₡0</span>
+      </div>
+      <a id="cart-whatsapp-link" href="#" target="_blank" rel="noopener" class="block text-center bg-mint text-black font-bold py-3 rounded-lg hover:bg-mint/80 transition-colors">Pedir por WhatsApp</a>
+    </div>
+  </div>
+
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
 </body>
