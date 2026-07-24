@@ -67,6 +67,15 @@ const PRODUCTS = [
     image: "images/products/aeropress-filter-box.jpeg",
   },
   {
+    id: "air-dripper",
+    name: "Air Dripper",
+    category: "coffee",
+    price: 6500,
+    description:
+      "Dripper sin contacto externo. El filtro quieda suspendido en el aire lo que hace que toda el agua tenga que pasar por el café, haciendo un No Bypass brew.",
+    image: "images/products/air-dripper.jpeg",
+  },
+  {
     id: "comandante-half-steps",
     name: "Comandante Half Steps",
     category: "coffee",
