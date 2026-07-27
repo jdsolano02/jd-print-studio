@@ -1,14 +1,15 @@
+// Orden alfabético por etiqueta, con "Personalizado" siempre al final.
 const CATEGORY_LABELS = {
-  speedcubing: "Speedcubing",
   coffee: "Coffee",
+  speedcubing: "Speedcubing",
   tcg: "TCG",
   varios: "Varios",
   personalizado: "Pedido Personalizado",
 };
 
 const CATEGORY_ICONS = {
-  speedcubing: "🧩",
   coffee: "☕",
+  speedcubing: "🧩",
   tcg: "🃏",
   varios: "✨",
   personalizado: "🛠️",
@@ -65,6 +66,11 @@ function igLink() {
 
 function customOrderWaLink() {
   const msg = "Hola! Quiero cotizar un pedido personalizado.";
+  return `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`;
+}
+
+function colorsWaLink() {
+  const msg = "Hola! Quiero consultar qué colores tienen disponibles.";
   return `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 
@@ -400,6 +406,9 @@ function setupContactLinks() {
   document.querySelectorAll(".wa-link").forEach((el) => (el.href = `https://wa.me/${CONTACT.whatsapp}`));
   document.querySelectorAll(".ig-link").forEach((el) => (el.href = igLink()));
   document.querySelectorAll(".mail-link").forEach((el) => (el.href = `mailto:${CONTACT.email}`));
+
+  const colorLink = document.getElementById("color-consult-link");
+  if (colorLink) colorLink.href = colorsWaLink();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
