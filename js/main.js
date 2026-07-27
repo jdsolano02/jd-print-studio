@@ -24,6 +24,7 @@ const SUBCATEGORIES = {
     { id: "cajas", label: "Cajas" },
     { id: "expositores", label: "Expositores" },
     { id: "tapacubos", label: "Tapacubos" },
+    { id: "fidgets", label: "Fidgets" },
   ],
   coffee: [
     { id: "negociadores", label: "Negociadores" },
