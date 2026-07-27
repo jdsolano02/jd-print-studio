@@ -1,19 +1,59 @@
 const CATEGORY_LABELS = {
   speedcubing: "Speedcubing",
   coffee: "Coffee",
+  tcg: "TCG",
   varios: "Varios",
+  personalizado: "Pedido Personalizado",
 };
 
 const CATEGORY_ICONS = {
   speedcubing: "🧩",
   coffee: "☕",
+  tcg: "🃏",
   varios: "✨",
+  personalizado: "🛠️",
 };
 
 const CATEGORY_ORDER = Object.keys(CATEGORY_LABELS);
 
+// Sub-categorías disponibles por categoría. Un producto puede tener
+// varias a la vez (ver PRODUCTS.subcategories en js/products.js).
+const SUBCATEGORIES = {
+  speedcubing: [
+    { id: "cajas", label: "Cajas" },
+    { id: "expositores", label: "Expositores" },
+    { id: "tapacubos", label: "Tapacubos" },
+  ],
+  coffee: [
+    { id: "negociadores", label: "Negociadores" },
+    { id: "melodrip", label: "Melodrip" },
+    { id: "aeropress", label: "Aeropress" },
+    { id: "filter-holders", label: "Filter Holders" },
+    { id: "metodos", label: "Métodos" },
+    { id: "comandante", label: "Comandante" },
+    { id: "accesorios", label: "Accesorios" },
+    { id: "llaveros", label: "Llaveros" },
+  ],
+  tcg: [
+    { id: "mtg", label: "Magic (MTG)" },
+    { id: "pokemon", label: "Pokémon" },
+    { id: "yugi", label: "Yu-Gi-Oh!" },
+    { id: "accesorios", label: "Accesorios" },
+    { id: "deckbox", label: "Deckbox" },
+  ],
+};
+
+function subcategoryLabel(category, subId) {
+  return (SUBCATEGORIES[category] || []).find((s) => s.id === subId)?.label || subId;
+}
+
+let currentFilter = "all";
+let activeSubcategories = new Set();
+
 const FILTER_ACTIVE_CLASSES = ["bg-mint", "text-black"];
 const FILTER_INACTIVE_CLASSES = ["text-white", "hover:bg-mint/10"];
+const SUBFILTER_ACTIVE_CLASSES = ["bg-mint", "text-black", "border-mint"];
+const SUBFILTER_INACTIVE_CLASSES = ["text-white/80", "hover:border-mint"];
 
 function formatCRC(amount) {
   return "₡" + amount.toLocaleString("es-CR");
@@ -21,6 +61,11 @@ function formatCRC(amount) {
 
 function igLink() {
   return `https://instagram.com/${CONTACT.instagram}`;
+}
+
+function customOrderWaLink() {
+  const msg = "Hola! Quiero cotizar un pedido personalizado.";
+  return `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 
 // ============================================================
@@ -190,6 +235,13 @@ function renderCard(product) {
   card.className = "bg-white text-black rounded-2xl overflow-hidden shadow-lg flex flex-col";
   card.dataset.category = product.category;
 
+  const subcatBadges = (product.subcategories || [])
+    .map(
+      (subId) =>
+        `<span class="text-[10px] font-semibold text-forest/70 border border-forest/20 rounded px-1.5 py-0.5">${subcategoryLabel(product.category, subId)}</span>`
+    )
+    .join("");
+
   card.innerHTML = `
     <div class="aspect-[9/16] bg-forest overflow-hidden flex items-center justify-center">
       <img
@@ -202,7 +254,10 @@ function renderCard(product) {
       <template id="placeholder-${product.id}">${placeholderMarkup(product)}</template>
     </div>
     <div class="p-4 flex flex-col gap-1.5 flex-1">
-      <span class="inline-flex items-center gap-1 w-fit bg-mint text-black text-xs font-bold px-2.5 py-1 rounded-full">${CATEGORY_ICONS[product.category]} ${CATEGORY_LABELS[product.category]}</span>
+      <div class="flex items-center flex-wrap gap-1.5">
+        <span class="inline-flex items-center gap-1 w-fit bg-mint text-black text-xs font-bold px-2.5 py-1 rounded-full">${CATEGORY_ICONS[product.category]} ${CATEGORY_LABELS[product.category]}</span>
+        ${subcatBadges}
+      </div>
       <h3 class="text-base font-bold mt-1">${product.name}</h3>
       <p class="text-sm text-black/60 flex-1">${product.description}</p>
       <div class="flex items-center justify-between mt-2">
@@ -218,13 +273,89 @@ function renderCard(product) {
   return card;
 }
 
-function renderCatalogue(filter) {
+function renderCustomOrderCard() {
+  const card = document.createElement("div");
+  card.className =
+    "col-span-full bg-white text-black rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left";
+  card.innerHTML = `
+    <div class="flex-1">
+      <h3 class="text-xl font-bold mb-2">${CATEGORY_ICONS.personalizado} ¿Tienes una idea en mente?</h3>
+      <p class="text-black/60">Diseñamos e imprimimos piezas a medida para lo que necesites. Contanos tu idea y te damos una cotización sin compromiso.</p>
+    </div>
+    <a class="shrink-0 whitespace-nowrap bg-mint text-black font-bold px-6 py-3 rounded-lg hover:bg-mint/80 transition-colors" href="${customOrderWaLink()}" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+  `;
+  return card;
+}
+
+function renderCategoryDivider(category) {
+  const divider = document.createElement("div");
+  divider.className = "col-span-full flex items-center gap-3 mt-4 first:mt-0";
+  divider.innerHTML = `
+    <span class="text-lg font-bold text-mint whitespace-nowrap">${CATEGORY_ICONS[category]} ${CATEGORY_LABELS[category]}</span>
+    <span class="flex-1 h-px bg-mint/30"></span>
+  `;
+  return divider;
+}
+
+function matchesActiveSubcategories(product) {
+  if (activeSubcategories.size === 0) return true;
+  return (product.subcategories || []).some((s) => activeSubcategories.has(s));
+}
+
+function renderSubfilters() {
+  const container = document.getElementById("subfilters");
+  const subs = SUBCATEGORIES[currentFilter];
+  activeSubcategories = new Set();
+
+  if (!subs || subs.length === 0) {
+    container.innerHTML = "";
+    container.classList.add("hidden");
+    container.classList.remove("flex", "flex-wrap");
+    return;
+  }
+
+  container.classList.remove("hidden");
+  container.classList.add("flex", "flex-wrap");
+  container.innerHTML = subs
+    .map(
+      (s) =>
+        `<button class="subfilter-btn border border-mint/40 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors text-white/80 hover:border-mint" data-subfilter="${s.id}">${s.label}</button>`
+    )
+    .join("");
+}
+
+function setupSubfilters() {
+  document.getElementById("subfilters").addEventListener("click", (e) => {
+    const btn = e.target.closest(".subfilter-btn");
+    if (!btn) return;
+    const id = btn.dataset.subfilter;
+    if (activeSubcategories.has(id)) {
+      activeSubcategories.delete(id);
+      btn.classList.remove(...SUBFILTER_ACTIVE_CLASSES);
+      btn.classList.add(...SUBFILTER_INACTIVE_CLASSES);
+    } else {
+      activeSubcategories.add(id);
+      btn.classList.add(...SUBFILTER_ACTIVE_CLASSES);
+      btn.classList.remove(...SUBFILTER_INACTIVE_CLASSES);
+    }
+    renderCatalogue();
+  });
+}
+
+function renderCatalogue() {
   const grid = document.getElementById("catalogue-grid");
   grid.innerHTML = "";
-  const products = (filter === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter))
+
+  if (currentFilter === "personalizado") {
+    grid.appendChild(renderCustomOrderCard());
+    return;
+  }
+
+  const products = (currentFilter === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === currentFilter))
+    .filter(matchesActiveSubcategories)
     .slice()
     .sort((a, b) => {
-      if (filter === "all" && a.category !== b.category) {
+      if (currentFilter === "all" && a.category !== b.category) {
         return CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
       }
       return a.name.localeCompare(b.name, "es", { sensitivity: "base" });
@@ -235,7 +366,17 @@ function renderCatalogue(filter) {
     return;
   }
 
-  products.forEach((p) => grid.appendChild(renderCard(p)));
+  products.forEach((p, index) => {
+    if (currentFilter === "all" && (index === 0 || p.category !== products[index - 1].category)) {
+      grid.appendChild(renderCategoryDivider(p.category));
+    }
+    grid.appendChild(renderCard(p));
+  });
+
+  if (currentFilter === "all") {
+    grid.appendChild(renderCategoryDivider("personalizado"));
+    grid.appendChild(renderCustomOrderCard());
+  }
 }
 
 function setupFilters() {
@@ -248,7 +389,9 @@ function setupFilters() {
       });
       btn.classList.remove(...FILTER_INACTIVE_CLASSES);
       btn.classList.add(...FILTER_ACTIVE_CLASSES);
-      renderCatalogue(btn.dataset.filter);
+      currentFilter = btn.dataset.filter;
+      renderSubfilters();
+      renderCatalogue();
     });
   });
 }
@@ -262,8 +405,9 @@ function setupContactLinks() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
   setupFilters();
+  setupSubfilters();
   setupContactLinks();
   setupCart();
-  renderCatalogue("all");
+  renderCatalogue();
   updateCartUI();
 });
