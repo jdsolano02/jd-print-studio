@@ -2,7 +2,7 @@
 
 A lightweight, static product catalogue for **JD Print Studio**, a custom 3D printing business. It showcases products across three categories — Speedcubing, Coffee, and Varios (miscellaneous) — as photo cards with a name, description, and price, and lets customers reach out directly via WhatsApp, Instagram, or email.
 
-**Live site:** https://jdsolano02.github.io/jd-print-studio/
+**Live site:** https://jdprintstudio.up.railway.app/
 
 ## Features
 
@@ -18,7 +18,7 @@ A lightweight, static product catalogue for **JD Print Studio**, a custom 3D pri
 - HTML5
 - [Tailwind CSS](https://tailwindcss.com/) (via CDN, JIT mode — no build pipeline required)
 - Vanilla JavaScript (no framework, no dependencies)
-- Hosted on [GitHub Pages](https://pages.github.com/)
+- Hosted on [Railway](https://railway.app/) (auto-detected as a static site via Railpack + Caddy)
 
 ## Project structure
 
@@ -80,4 +80,4 @@ Then open `http://localhost:8080`.
 
 ## Deployment
 
-The site is deployed via **GitHub Pages** from the `master` branch root. Any push to `master` automatically republishes the live site — no CI configuration required.
+The site is deployed via **Railway**, connected to the `master` branch. Railway auto-detects it as a static site (no `package.json`) and serves it with Caddy — any push to `master` automatically triggers a redeploy, no CI configuration required.
