@@ -1,12 +1,12 @@
 # JD Print Studio — Product Catalogue
 
-A lightweight, static product catalogue for **JD Print Studio**, a custom 3D printing business. It showcases products across three categories — Speedcubing, Coffee, and Varios (miscellaneous) — as photo cards with a name, description, and price, and lets customers reach out directly via WhatsApp, Instagram, or email.
+A lightweight, static product catalogue for **JD Print Studio**, a custom 3D printing business. It showcases products across categories — Coffee, Speedcubing, TCG, and Varios (miscellaneous) — as photo cards with a name, description, and price, and lets customers reach out directly via WhatsApp, Instagram, or email.
 
 **Live site:** https://jdprintstudio.up.railway.app/
 
 ## Features
 
-- Category filtering (All / Speedcubing / Coffee / Varios) with instant client-side rendering
+- Category filtering (All / Coffee / Speedcubing / TCG / Varios), plus multi-select sub-category tag filters within each category
 - Products sorted alphabetically within each category automatically
 - One-click ordering via WhatsApp (pre-filled message with product name and price), plus Instagram and email links
 - Graceful placeholder cards (icon + initials) for products that don't have a photo yet — no broken image icons
@@ -30,7 +30,11 @@ A lightweight, static product catalogue for **JD Print Studio**, a custom 3D pri
 │   └── main.js              # Rendering, filtering, and sorting logic
 └── images/
     ├── logo/                # Logo, mascot artwork, and favicons
-    └── products/            # Product photos
+    └── products/            # Product photos, one sub-folder per category
+        ├── coffee/
+        ├── speedcubing/
+        ├── tcg/
+        └── varios/
 ```
 
 ## Editing the catalogue
@@ -55,10 +59,11 @@ Copy an existing block inside the `PRODUCTS` array and adjust the fields:
 {
   id: "unique-id",              // unique slug, used internally
   name: "Product Name",
-  category: "speedcubing",      // "speedcubing" | "coffee" | "varios"
+  category: "speedcubing",      // "speedcubing" | "coffee" | "tcg" | "varios"
+  subcategories: [],            // optional tags, see SUBCATEGORIES in js/main.js
   price: 2000,                  // CRC, no formatting
   description: "Short description shown on the card.",
-  image: "images/products/unique-id.jpeg",
+  image: "images/products/speedcubing/unique-id.jpeg",
 },
 ```
 
@@ -66,7 +71,7 @@ Products don't need to be added in any particular order — they're sorted alpha
 
 ### Product photos
 
-Drop the photo into `images/products/` with the filename referenced in `image`. If the file isn't there yet, the card automatically falls back to a styled placeholder (category icon + initials) instead of a broken image — so you can add products ahead of having final photography.
+Each category has its own sub-folder under `images/products/` (`coffee/`, `speedcubing/`, `tcg/`, `varios/`). Drop the photo into the sub-folder matching the product's `category`, using the filename referenced in `image`. If the file isn't there yet, the card automatically falls back to a styled placeholder (category icon + initials) instead of a broken image — so you can add products ahead of having final photography.
 
 ## Running locally
 

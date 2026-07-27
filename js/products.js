@@ -31,7 +31,9 @@ const CONTACT = {
 //   tcg         -> "mtg" | "pokemon" | "yugi" | "accesorios" | "deckbox"
 //   varios      -> (no tiene sub-categorías)
 //
-// image: ruta a la foto del producto dentro de images/products/.
+// image: ruta a la foto del producto dentro de images/products/<categoria>/
+// (ej. images/products/coffee/mi-producto.jpeg). Cada categoría tiene su
+// propia sub-carpeta: speedcubing/, coffee/, tcg/, varios/.
 // Si el archivo no existe todavía, se muestra automáticamente un
 // placeholder bonito — así que puedes dejarlo apuntando al nombre
 // que usarás cuando tengas la foto lista.
@@ -48,7 +50,7 @@ const PRODUCTS = [
     price: 3000,
     description:
       "Caja protectora para cubos 56x56mm, ideal para transportar y coleccionar.",
-    image: "images/products/caja-cubos-56x56.jpeg",
+    image: "images/products/speedcubing/caja-cubos-56x56.jpeg",
   },
   {
     id: "caja-cubos-56-5mm",
@@ -58,7 +60,7 @@ const PRODUCTS = [
     price: 3000,
     description:
       "Caja protectora ideal para cubos 3x3 transportar y coleccionar.",
-    image: "images/products/caja-cubos-56-5mm.jpeg",
+    image: "images/products/speedcubing/caja-cubos-56-5mm.jpeg",
   },
   {
     id: "tapacubos-square-1",
@@ -68,7 +70,7 @@ const PRODUCTS = [
     price: 5000,
     description:
       "Para practicar y que tu Square-1 no se mueva, provocando miss scrambles",
-    image: "images/products/tapacubos-square-1.jpeg",
+    image: "images/products/speedcubing/tapacubos-square-1.jpeg",
   },
 
   // ---------------- Coffee ----------------
@@ -79,7 +81,7 @@ const PRODUCTS = [
     subcategories: ["aeropress", "melodrip"],
     price: 4000,
     description: "Adaptador de tapa de Aeropress para ser usada como Melodrip",
-    image: "images/products/aerodrip.jpeg",
+    image: "images/products/coffee/aerodrip.jpeg",
   },
   {
     id: "aeropress-filter-box",
@@ -88,7 +90,7 @@ const PRODUCTS = [
     subcategories: ["aeropress"],
     price: 3500,
     description: "Caja para llevar tus filtros de Aeropress.",
-    image: "images/products/aeropress-filter-box.jpeg",
+    image: "images/products/coffee/aeropress-filter-box.jpeg",
   },
   {
     id: "air-dripper",
@@ -98,7 +100,7 @@ const PRODUCTS = [
     price: 7000,
     description:
       "Dripper sin contacto externo. El filtro quieda suspendido en el aire lo que hace que toda el agua tenga que pasar por el café, haciendo un No Bypass brew.",
-    image: "images/products/air-dripper.jpeg",
+    image: "images/products/coffee/air-dripper.jpeg",
   },
   {
     id: "comandante-half-steps",
@@ -108,7 +110,7 @@ const PRODUCTS = [
     price: 2000,
     description:
       "Anillo de ajuste de half-steps para tu molino Comandante C40., suplica tus clicks, también fuinciona con los 'Red Clix' para aún más precisión",
-    image: "images/products/comandante-half-steps.jpeg",
+    image: "images/products/coffee/comandante-half-steps.jpeg",
   },
   {
     id: "coffee-bean-funnel",
@@ -117,7 +119,7 @@ const PRODUCTS = [
     subcategories: ["accesorios"],
     price: 1500,
     description: "Embudo para dosificar tus granos café sin derrames.",
-    image: "images/products/coffee-bean-funnel.jpeg",
+    image: "images/products/coffee/coffee-bean-funnel.jpeg",
   },
   {
     id: "holder-filtros-kalita",
@@ -127,7 +129,7 @@ const PRODUCTS = [
     price: 6000,
     description:
       "Organizador de filtros Kalita o Wave para mantener tu barra de café ordenada. y que tus filtros no pierdan su forma",
-    image: "images/products/holder-filtros-kalita.jpeg",
+    image: "images/products/coffee/holder-filtros-kalita.jpeg",
   },
   {
     id: "holder-monte-fuji-graycano-m",
@@ -136,7 +138,7 @@ const PRODUCTS = [
     subcategories: ["filter-holders"],
     price: 4500,
     description: "Soporte tamaño M para filtros Graycano o similares.",
-    image: "images/products/holder-monte-fuji-graycano-m.jpeg",
+    image: "images/products/coffee/holder-monte-fuji-graycano-m.jpeg",
   },
   {
     id: "holder-monte-fuji-sibarist-fast-l",
@@ -145,7 +147,7 @@ const PRODUCTS = [
     subcategories: ["filter-holders"],
     price: 5000,
     description: "Soporte tamaño L para filtros Sibarist Fast o similares",
-    image: "images/products/holder-monte-fuji-sibarist-fast-l.jpeg",
+    image: "images/products/coffee/holder-monte-fuji-sibarist-fast-l.jpeg",
   },
   {
     id: "holder-monte-fuji-ufo-s",
@@ -154,7 +156,7 @@ const PRODUCTS = [
     subcategories: ["filter-holders"],
     price: 4000,
     description: "Soporte tamaño S para filtros UFO o similares.",
-    image: "images/products/holder-monte-fuji-ufo-s.jpeg",
+    image: "images/products/coffee/holder-monte-fuji-ufo-s.jpeg",
   },
   {
     id: "melodrip-tray-aeropress",
@@ -164,7 +166,7 @@ const PRODUCTS = [
     price: 1500,
     description:
       "Bandeja para Melodrip diseñada para Aeropress, Usa el Melodrip sin preocupaciones",
-    image: "images/products/melodrip-tray-aeropress.jpeg",
+    image: "images/products/coffee/melodrip-tray-aeropress.jpeg",
   },
   {
     id: "melodrip-tray-v2",
@@ -174,7 +176,7 @@ const PRODUCTS = [
     price: 4000,
     description:
       "Bandeja para tu Melodrip que es compatible con bastantes metodos comerciales, para poder usarlo sin preocupaciones (no compatible con Origami M)",
-    image: "images/products/melodrip-tray-v2.jpeg",
+    image: "images/products/coffee/melodrip-tray-v2.jpeg",
   },
   {
     id: "negociador-v60-02",
@@ -184,7 +186,7 @@ const PRODUCTS = [
     price: 5000,
     description:
       "Para ayudarte a colocar el  filtro de la mejor manera dentro de tu V60",
-    image: "images/products/negociador-v60-02.jpeg",
+    image: "images/products/coffee/negociador-v60-02.jpeg",
   },
   {
     id: "tapa-aeropress-repuesto",
@@ -193,7 +195,7 @@ const PRODUCTS = [
     subcategories: ["aeropress"],
     price: 3000,
     description: "Tapa de repuesto para tu Aeropress, ajuste perfecto.",
-    image: "images/products/tapa-aeropress-repuesto.jpeg",
+    image: "images/products/coffee/tapa-aeropress-repuesto.jpeg",
   },
   {
     id: "tapa-comandante-con-clip",
@@ -202,7 +204,7 @@ const PRODUCTS = [
     subcategories: ["comandante"],
     price: 1500,
     description: "Tapa con clip para el molino manual Comandante C40.",
-    image: "images/products/tapa-comandante-con-clip.jpeg",
+    image: "images/products/coffee/tapa-comandante-con-clip.jpeg",
   },
 
   {
@@ -213,7 +215,7 @@ const PRODUCTS = [
     price: 1000,
     description:
       "Llavero con forma de grano de café, el accesorio perfecto para cafeteros.",
-    image: "images/products/llavero-grano-de-cafe.jpeg",
+    image: "images/products/coffee/llavero-grano-de-cafe.jpeg",
   },
   {
     id: "llavero-tetera",
@@ -223,7 +225,7 @@ const PRODUCTS = [
     price: 1000,
     description:
       "Llavero con forma de tetera, el accesorio perfecto para cafeteros.",
-    image: "images/products/llavero-tetera.jpeg",
+    image: "images/products/coffee/llavero-tetera.jpeg",
   },
 
   // ---------------- TCG ----------------
@@ -234,7 +236,7 @@ const PRODUCTS = [
     subcategories: ["mtg", "accesorios"],
     price: 4000,
     description: "Bandeja de dados apilable para tus partidas de Commander.",
-    image: "images/products/mtg-commander-dice-tray.jpeg",
+    image: "images/products/tcg/mtg-commander-dice-tray.jpeg",
   },
   {
     id: "mtg-commander-box-sin-dice-tray",
@@ -244,7 +246,7 @@ const PRODUCTS = [
     price: 5000,
     description:
       "Caja para guardar tu mazo de Commander, sin bandeja de dados integrada. Entran 118 cartas en single sleeve + 25 de side deck, más 1 al frente como expositor.",
-    image: "images/products/mtg-commander-box-sin-dice-tray.jpeg",
+    image: "images/products/tcg/mtg-commander-box-sin-dice-tray.jpeg",
   },
   {
     id: "mtg-commander-deckbox-apilable-con-dice-tray",
@@ -254,7 +256,7 @@ const PRODUCTS = [
     price: 6000,
     description:
       "Deckbox apilable para Commander con bandeja de dados integrada. Entran 118 cartas en single sleeve + 25 de side deck, más 1 al frente como expositor.",
-    image: "images/products/mtg-commander-deckbox-apilable-con-dice-tray.jpeg",
+    image: "images/products/tcg/mtg-commander-deckbox-apilable-con-dice-tray.jpeg",
   },
   {
     id: "mtg-commander-6-decks",
@@ -263,7 +265,7 @@ const PRODUCTS = [
     subcategories: ["mtg", "deckbox"],
     price: 16000,
     description: "Caja organizadora para guardar hasta 6 mazos de Commander.",
-    image: "images/products/mtg-commander-6-decks.jpeg",
+    image: "images/products/tcg/mtg-commander-6-decks.jpeg",
   },
   {
     id: "mtg-double-sleeve-commander-deck",
@@ -273,7 +275,7 @@ const PRODUCTS = [
     price: 7500,
     description:
       "Caja para mazo de Commander con doble sleeve (protector doble).",
-    image: "images/products/mtg-double-sleeve-commander-deck.jpeg",
+    image: "images/products/tcg/mtg-double-sleeve-commander-deck.jpeg",
   },
 
   // ---------------- Varios ----------------
@@ -285,6 +287,6 @@ const PRODUCTS = [
     price: 3500,
     description:
       "Soporte para exhibir y organizar tus medallas de competencia.",
-    image: "images/products/medal-holder.jpeg",
+    image: "images/products/varios/medal-holder.jpeg",
   },
 ];
