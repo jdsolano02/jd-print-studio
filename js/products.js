@@ -45,23 +45,13 @@ const PRODUCTS = [
 
   {
     id: "caja-cubos-56x56mm",
-    name: "Caja Cubos 56x56mm",
+    name: "Caja Cubos distintos tamaños",
     category: "speedcubing",
     subcategories: ["cajas"],
-    price: 3000,
+    price: 2500,
     description:
-      "Caja protectora para cubos 56x56mm, ideal para transportar y coleccionar.",
+      "Caja protectora para cubos desde 2x2 a 7x7, medidad desde 50x50mm hasta 65x65mm. precio depende del tamaño",
     image: "images/products/speedcubing/caja-cubos-56x56.jpeg",
-  },
-  {
-    id: "caja-cubos-56-5mm",
-    name: "Caja Cubos 56.5mm",
-    category: "speedcubing",
-    subcategories: ["cajas"],
-    price: 3000,
-    description:
-      "Caja protectora ideal para cubos 3x3 transportar y coleccionar.",
-    image: "images/products/speedcubing/caja-cubos-56-5mm.jpeg",
   },
   {
     id: "tapacubos-square-1",
@@ -178,7 +168,8 @@ const PRODUCTS = [
     category: "speedcubing",
     subcategories: ["expositores"],
     price: 2000,
-    description: "Soporte articulado, ajustable en ángulo para exhibir tu cubo.",
+    description:
+      "Soporte articulado, ajustable en ángulo para exhibir tu cubo.",
     image: "images/products/speedcubing/stand-articulado.jpeg",
   },
   {
@@ -196,7 +187,8 @@ const PRODUCTS = [
     category: "speedcubing",
     subcategories: ["fidgets"],
     price: 6500,
-    description: "Cubo fidget con engranajes, ideal para entretenerte y relajarte.",
+    description:
+      "Cubo fidget con engranajes, ideal para entretenerte y relajarte.",
     image: "images/products/speedcubing/cubo-gear-fidget.jpeg",
   },
   {
@@ -205,7 +197,8 @@ const PRODUCTS = [
     category: "speedcubing",
     subcategories: ["fidgets"],
     price: 2500,
-    description: "Cubo infinito fidget, se pliega en todas direcciones sin parar.",
+    description:
+      "Cubo infinito fidget, se pliega en todas direcciones sin parar.",
     image: "images/products/speedcubing/infinity-cube-fidget.jpeg",
   },
 
@@ -392,7 +385,8 @@ const PRODUCTS = [
     price: 6000,
     description:
       "Deckbox apilable para Commander con bandeja de dados integrada. Entran 118 cartas en single sleeve + 25 de side deck, más 1 al frente como expositor.",
-    image: "images/products/tcg/mtg-commander-deckbox-apilable-con-dice-tray.jpeg",
+    image:
+      "images/products/tcg/mtg-commander-deckbox-apilable-con-dice-tray.jpeg",
   },
   {
     id: "mtg-commander-6-decks",
@@ -464,7 +458,8 @@ const PRODUCTS = [
     category: "tcg",
     subcategories: ["pokemon", "accesorios"],
     price: 12500,
-    description: "Insert completo para organizar tu lonchera de cartas Pokémon.",
+    description:
+      "Insert completo para organizar tu lonchera de cartas Pokémon.",
     image: "images/products/tcg/pokemon-lonchera-insert-completo.jpeg",
   },
   {
