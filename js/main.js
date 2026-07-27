@@ -229,7 +229,7 @@ function placeholderMarkup(product) {
     .map((w) => w[0].toUpperCase())
     .join("");
   return `
-    <div class="w-full h-full flex flex-col items-center justify-center gap-1.5 bg-forest text-center px-2">
+    <div class="aspect-[4/5] w-full flex flex-col items-center justify-center gap-1.5 bg-forest text-center px-2">
       <span class="text-3xl">${CATEGORY_ICONS[product.category]}</span>
       <span class="text-lg font-bold tracking-wide text-mint">${initials}</span>
       <span class="text-xs text-white/70">Foto próximamente</span>
@@ -250,9 +250,9 @@ function renderCard(product) {
     .join("");
 
   card.innerHTML = `
-    <div class="aspect-[9/16] bg-forest overflow-hidden flex items-center justify-center">
+    <div class="bg-forest overflow-hidden">
       <img
-        class="w-full h-full object-contain block"
+        class="w-full h-auto block"
         src="${product.image}"
         alt="${product.name}"
         loading="lazy"
@@ -270,9 +270,9 @@ function renderCard(product) {
       <div class="flex items-center justify-between mt-2">
         <span class="font-bold text-black">${formatCRC(product.price)}</span>
         <div class="flex items-center gap-1.5 bg-black/5 rounded-lg p-1">
-          <button class="card-qty-btn w-7 h-7 rounded-md text-forest font-bold text-lg hover:bg-black/10 transition-colors" data-id="${product.id}" data-delta="-1" aria-label="Quitar uno">−</button>
+          <button class="card-qty-btn w-8 h-8 rounded-md text-forest font-bold text-lg hover:bg-black/10 transition-colors" data-id="${product.id}" data-delta="-1" aria-label="Quitar uno">−</button>
           <span class="w-6 text-center font-semibold text-sm" data-qty-display="${product.id}">${getQuantity(product.id)}</span>
-          <button class="card-qty-btn w-7 h-7 rounded-md bg-mint text-black font-bold text-lg hover:bg-mint/80 transition-colors" data-id="${product.id}" data-delta="1" aria-label="Agregar uno">+</button>
+          <button class="card-qty-btn w-8 h-8 rounded-md bg-mint text-black font-bold text-lg hover:bg-mint/80 transition-colors" data-id="${product.id}" data-delta="1" aria-label="Agregar uno">+</button>
         </div>
       </div>
     </div>
