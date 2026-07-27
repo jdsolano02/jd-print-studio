@@ -1,108 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JD Print Studio — Catálogo</title>
-  <meta name="description" content="JD Print Studio — impresión 3D a medida: speedcubing, accesorios de café y más." />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/logo/favicon-180.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JD Print Studio — Catálogo</title>
+    <meta
+      name="description"
+      content="JD Print Studio — impresión 3D a medida: speedcubing, accesorios de café y más."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/logo/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/logo/favicon-180.png"
+    />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            forest: "#0a451d",
-            mint: "#9ce595",
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "#0a451d",
+              mint: "#9ce595",
+            },
           },
         },
-      },
-    };
-  </script>
-</head>
-<body class="bg-forest text-white font-sans antialiased">
-
-  <header class="sticky top-0 z-10 bg-forest border-b border-mint/30">
-    <div class="max-w-5xl mx-auto flex items-center justify-between px-5 py-3">
-      <div class="flex items-center gap-3">
-        <img src="images/logo/mascota-icono.png" alt="Mascota JD Print Studio" class="w-11 h-11 object-contain shrink-0" />
-        <div class="flex flex-col leading-tight">
-          <span class="font-bold">JD Print Studio</span>
-          <span class="text-xs text-white/70">Impresión 3D a medida</span>
+      };
+    </script>
+  </head>
+  <body class="bg-forest text-white font-sans antialiased">
+    <header class="sticky top-0 z-10 bg-forest border-b border-mint/30">
+      <div
+        class="max-w-5xl mx-auto flex items-center justify-between px-5 py-3"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="images/logo/mascota-icono.png"
+            alt="Mascota JD Print Studio"
+            class="w-11 h-11 object-contain shrink-0"
+          />
+          <div class="flex flex-col leading-tight">
+            <span class="font-bold">JD Print Studio</span>
+            <span class="text-xs text-white/70">Impresión 3D a medida</span>
+          </div>
         </div>
+        <nav class="flex items-center gap-4 text-lg">
+          <a
+            class="wa-link hover:text-mint transition-colors"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            title="WhatsApp"
+            aria-label="WhatsApp"
+            >💬</a
+          >
+          <a
+            class="ig-link hover:text-mint transition-colors"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            title="Instagram"
+            aria-label="Instagram"
+            >📷</a
+          >
+          <a
+            class="mail-link hover:text-mint transition-colors"
+            href="#"
+            title="Email"
+            aria-label="Email"
+            >✉️</a
+          >
+        </nav>
       </div>
-      <nav class="flex items-center gap-4 text-lg">
-        <a class="wa-link hover:text-mint transition-colors" href="#" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">💬</a>
-        <a class="ig-link hover:text-mint transition-colors" href="#" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">📷</a>
-        <a class="mail-link hover:text-mint transition-colors" href="#" title="Email" aria-label="Email">✉️</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <section class="relative overflow-hidden text-center py-14 px-5">
-    <div class="pointer-events-none absolute inset-0 flex justify-center">
-      <div class="w-72 h-72 bg-mint/10 rounded-full blur-3xl"></div>
-    </div>
-    <div class="relative max-w-5xl mx-auto">
-      <img src="images/logo/lockup-completo.png" alt="JD Print Studio — Impresiones 3D personalizadas" class="mx-auto w-64 md:w-80 h-auto mb-4" />
-      <h1 class="text-3xl md:text-4xl font-bold mb-3">Piezas impresas en 3D, hechas con precisión</h1>
-      <p class="text-white/70 max-w-xl mx-auto">Explora nuestro catálogo de accesorios para speedcubing, café y mucho más. Cada pieza impresa por JD Print Studio.</p>
-    </div>
-  </section>
-
-  <main class="max-w-5xl mx-auto px-5">
-    <div id="filters" class="flex flex-wrap gap-2.5 justify-center mb-8">
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors bg-mint text-black" data-filter="all">Todos</button>
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10" data-filter="speedcubing">🧩 Speedcubing</button>
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10" data-filter="coffee">☕ Coffee</button>
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10" data-filter="tcg">🃏 TCG</button>
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10" data-filter="varios">✨ Varios</button>
-      <button class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10" data-filter="personalizado">🛠️ Personalizado</button>
-    </div>
-
-    <div id="subfilters" class="hidden gap-2 justify-center mb-8"></div>
-
-    <section id="catalogue-grid" class="grid gap-6 pb-16" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
-      <!-- Las tarjetas de producto se generan dinámicamente desde js/products.js -->
+    <section class="relative overflow-hidden text-center py-14 px-5">
+      <div class="pointer-events-none absolute inset-0 flex justify-center">
+        <div class="w-72 h-72 bg-mint/10 rounded-full blur-3xl"></div>
+      </div>
+      <div class="relative max-w-5xl mx-auto">
+        <img
+          src="images/logo/lockup-completo.png"
+          alt="JD Print Studio — Impresiones 3D personalizadas"
+          class="mx-auto w-64 md:w-80 h-auto mb-4"
+        />
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">
+          Piezas impresas en 3D, hechas con precisión
+        </h1>
+        <p class="text-white/70 max-w-xl mx-auto">
+          Explora nuestro catálogo de accesorios para speedcubing, café y mucho
+          más. Cada pieza impresa por JD Print Studio.
+        </p>
+      </div>
     </section>
-  </main>
 
-  <footer class="border-t border-mint/30 py-6">
-    <div class="max-w-5xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3 text-sm text-white/70">
-      <p>&copy; <span id="year"></span> JD Print Studio. Todos los precios en colones costarricenses (₡).</p>
-      <nav class="flex items-center gap-4">
-        <a class="wa-link hover:text-mint transition-colors" href="#" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="ig-link hover:text-mint transition-colors" href="#" target="_blank" rel="noopener">Instagram</a>
-        <a class="mail-link hover:text-mint transition-colors" href="#">Email</a>
-      </nav>
-    </div>
-  </footer>
-
-  <button id="cart-fab" class="fixed bottom-5 right-5 z-20 bg-mint text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-mint/80 transition-colors" aria-label="Ver carrito">
-    🛒
-    <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-forest text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
-  </button>
-
-  <div id="cart-overlay" class="hidden fixed inset-0 z-30 bg-black/50"></div>
-  <div id="cart-panel" class="hidden fixed top-0 right-0 z-40 h-full w-full max-w-sm bg-white text-black shadow-2xl flex flex-col">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-black/10">
-      <h2 class="font-bold text-lg">Tu pedido</h2>
-      <button id="cart-close" class="text-2xl leading-none text-black/60 hover:text-black" aria-label="Cerrar carrito">&times;</button>
-    </div>
-    <div id="cart-items" class="flex-1 overflow-y-auto px-5"></div>
-    <p id="cart-empty" class="px-5 py-10 text-center text-black/50">Tu carrito está vacío. Agrega productos con el botón "+" en cada tarjeta.</p>
-    <div id="cart-footer" class="hidden border-t border-black/10 px-5 py-4">
-      <div class="flex items-center justify-between font-bold text-lg mb-3">
-        <span>Total</span>
-        <span id="cart-total">₡0</span>
+    <main class="max-w-5xl mx-auto px-5">
+      <div id="filters" class="flex flex-wrap gap-2.5 justify-center mb-8">
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors bg-mint text-black"
+          data-filter="all"
+        >
+          Todos
+        </button>
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10"
+          data-filter="coffee"
+        >
+          ☕ Coffee
+        </button>
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10"
+          data-filter="speedcubing"
+        >
+          🧩 Speedcubing
+        </button>
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10"
+          data-filter="tcg"
+        >
+          🃏 TCG
+        </button>
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10"
+          data-filter="varios"
+        >
+          ✨ Varios
+        </button>
+        <button
+          class="filter-btn border border-mint rounded-full px-5 py-2 text-sm font-medium transition-colors text-white hover:bg-mint/10"
+          data-filter="personalizado"
+        >
+          🛠️ Personalizado
+        </button>
       </div>
-      <a id="cart-whatsapp-link" href="#" target="_blank" rel="noopener" class="block text-center bg-mint text-black font-bold py-3 rounded-lg hover:bg-mint/80 transition-colors">Pedir por WhatsApp</a>
-    </div>
-  </div>
 
-  <script src="js/products.js"></script>
-  <script src="js/main.js"></script>
-</body>
+      <div id="subfilters" class="hidden gap-2 justify-center mb-8"></div>
+
+      <section
+        id="catalogue-grid"
+        class="grid gap-6 pb-16"
+        style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))"
+      >
+        <!-- Las tarjetas de producto se generan dinámicamente desde js/products.js -->
+      </section>
+    </main>
+
+    <footer class="border-t border-mint/30 py-6">
+      <div
+        class="max-w-5xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3 text-sm text-white/70"
+      >
+        <p>
+          &copy; <span id="year"></span> JD Print Studio. Todos los precios en
+          colones costarricenses (₡).
+        </p>
+        <nav class="flex items-center gap-4">
+          <a
+            class="wa-link hover:text-mint transition-colors"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >WhatsApp</a
+          >
+          <a
+            class="ig-link hover:text-mint transition-colors"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >Instagram</a
+          >
+          <a class="mail-link hover:text-mint transition-colors" href="#"
+            >Email</a
+          >
+        </nav>
+      </div>
+    </footer>
+
+    <button
+      id="cart-fab"
+      class="fixed bottom-5 right-5 z-20 bg-mint text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-mint/80 transition-colors"
+      aria-label="Ver carrito"
+    >
+      🛒
+      <span
+        id="cart-badge"
+        class="hidden absolute -top-1 -right-1 bg-forest text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white"
+        >0</span
+      >
+    </button>
+
+    <div id="cart-overlay" class="hidden fixed inset-0 z-30 bg-black/50"></div>
+    <div
+      id="cart-panel"
+      class="hidden fixed top-0 right-0 z-40 h-full w-full max-w-sm bg-white text-black shadow-2xl flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-5 py-4 border-b border-black/10"
+      >
+        <h2 class="font-bold text-lg">Tu pedido</h2>
+        <button
+          id="cart-close"
+          class="text-2xl leading-none text-black/60 hover:text-black"
+          aria-label="Cerrar carrito"
+        >
+          &times;
+        </button>
+      </div>
+      <div id="cart-items" class="flex-1 overflow-y-auto px-5"></div>
+      <p id="cart-empty" class="px-5 py-10 text-center text-black/50">
+        Tu carrito está vacío. Agrega productos con el botón "+" en cada
+        tarjeta.
+      </p>
+      <div id="cart-footer" class="hidden border-t border-black/10 px-5 py-4">
+        <div class="flex items-center justify-between font-bold text-lg mb-3">
+          <span>Total</span>
+          <span id="cart-total">₡0</span>
+        </div>
+        <a
+          id="cart-whatsapp-link"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          class="block text-center bg-mint text-black font-bold py-3 rounded-lg hover:bg-mint/80 transition-colors"
+          >Pedir por WhatsApp</a
+        >
+      </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
