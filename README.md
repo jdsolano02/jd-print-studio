@@ -2,7 +2,7 @@
 
 A lightweight, static product catalogue for **JD Print Studio**, a custom 3D printing business. It showcases products across categories — Coffee, Speedcubing, TCG, and Varios (miscellaneous) — as photo cards with a name, description, and price, and lets customers reach out directly via WhatsApp, Instagram, or email.
 
-**Live site:** https://jdprintstudio.up.railway.app/
+**Live site:** https://jdprintstudio.shop/
 
 ## Features
 
@@ -85,4 +85,4 @@ Then open `http://localhost:8080`.
 
 ## Deployment
 
-The site is deployed via **Railway**, connected to the `master` branch. Railway auto-detects it as a static site (no `package.json`) and serves it with Caddy — any push to `master` automatically triggers a redeploy, no CI configuration required.
+The site is deployed via **Railway**, connected to the `master` branch, and served on the custom domain **jdprintstudio.shop**. Railway auto-detects it as a static site (no `package.json`) and serves it with Caddy — any push to `master` automatically triggers a redeploy, no CI configuration required.
