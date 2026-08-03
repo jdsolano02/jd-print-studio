@@ -298,7 +298,7 @@ function renderCategoryDivider(category) {
   const divider = document.createElement("div");
   divider.className = "col-span-full flex items-center gap-3 mt-4 first:mt-0";
   divider.innerHTML = `
-    <span class="text-lg font-bold text-mint whitespace-nowrap">${CATEGORY_ICONS[category]} ${CATEGORY_LABELS[category]}</span>
+    <h2 class="text-lg font-bold text-mint whitespace-nowrap m-0">${CATEGORY_ICONS[category]} ${CATEGORY_LABELS[category]}</h2>
     <span class="flex-1 h-px bg-mint/30"></span>
   `;
   return divider;
